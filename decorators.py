@@ -46,3 +46,32 @@ def correct_test_decorator():
 
 #Just calling the test decroator like a regular function
 correct_test_decorator()
+
+######################################################################
+
+"""Below code blocks are snippets explaining further into the concepts of decorators"""
+
+#Function to specify the author of the file
+def specify_author(func):
+    def wrapper(name):
+        print(f"The author of this file is {name}")
+    return func
+
+#function to add things to the title of the file
+def add_things(func):
+    def wrapper():
+        title = func()
+        new_title = title + ' !!!'
+        return new_title
+    return wrapper
+
+@specify_author
+def get_author(name):
+    return name
+
+@add_things
+def get_title():
+    return "The name of the file is decorators" 
+
+print(get_author('Simon Cowell'))
+print(get_title())
