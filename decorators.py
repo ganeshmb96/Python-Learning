@@ -54,14 +54,15 @@ correct_test_decorator()
 #Function to specify the author of the file
 def specify_author(func):
     def wrapper(name):
-        print(f"The author of this file is {name}")
-    return func
+        title = f"The author of this file is {func(name)}"
+        return title
+    return wrapper
 
 #function to add things to the title of the file
 def add_things(func):
-    def wrapper():
-        title = func()
-        new_title = title + ' !!!'
+    def wrapper(file_title):
+        title = "The name of the file is " 
+        new_title = title + func(file_title) +' !!!'
         return new_title
     return wrapper
 
@@ -70,8 +71,8 @@ def get_author(name):
     return name
 
 @add_things
-def get_title():
-    return "The name of the file is decorators" 
+def get_title(file_title):
+    return file_title
 
 print(get_author('Simon Cowell'))
-print(get_title())
+print(get_title('decorators'))
