@@ -31,7 +31,7 @@ se1 = SoftwareEngineer(*list_emp1)
 se2 = SoftwareEngineer("Max", 20, "Junior", 5000)
 
 #You can also print the object values as well
-print(se2.name, se2.age)
+print(f"This is the name of the Software Engineer {se2.name[0]} and this is his age {se2.age[0]}")
 
 #Works if there is a class attribute
 print(SoftwareEngineer.alias)

@@ -76,3 +76,16 @@ def get_title(file_title):
 
 print(get_author('Simon Cowell'))
 print(get_title('decorators'))
+
+#Function to pass multiple arguements or varying number of arguments
+def add_many_authors(func):
+    def wrapper(*args, **kwargs):
+        title = f"The author/s of this file is/are {func(*args, **kwargs)}"
+        return title
+    return wrapper
+
+@add_many_authors
+def get_mult_authors(n1, n2):
+    return n1 + ','+ n2
+
+print(get_mult_authors('anderj', 'karpathy'))
